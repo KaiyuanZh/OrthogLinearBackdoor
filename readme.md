@@ -95,6 +95,21 @@ In the above commond line, `xx.py` can be `model_detection.py ` or `backdoor_mit
 ## Plot
 In our paper, we formalize backdoor learning as a twotask continual learning problem: 1). an initial rapid learning phase of the backdoor task within a few training epochs, followed by 2). a subsequent phase of gradually learning over the clean task.
 
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div style="text-align: center; flex: 0 0 32%; margin: 0 1%;">
+    <img src="plot/cifar10_training_badnet.png" alt="CIFAR10 Training with BadNet" style="width: 100%;">
+    <div>CIFAR10 Training with BadNet</div>
+  </div>
+  <div style="text-align: center; flex: 0 0 32%; margin: 0 1%;">
+    <img src="plot/cifar10_training_blend.png" alt="CIFAR10 Training with Blend" style="width: 100%;">
+    <div>CIFAR10 Training with Blend</div>
+  </div>
+  <div style="text-align: center; flex: 0 0 32%; margin: 0 1%;">
+    <img src="plot/cifar10_training_wanet.png" alt="CIFAR10 Training with WaNet" style="width: 100%;">
+    <div>CIFAR10 Training with WaNet</div>
+  </div>
+</div>
+
 We provide the code to demonstrate the observation in the `plot` folder. You can run the following command to plot the results to observe 
 
 ```bash
