@@ -92,7 +92,14 @@ In the above commond line, `xx.py` can be `model_detection.py ` or `backdoor_mit
     CUDA_VISIBLE_DEVICES=0 python input_detection.py --dataset cifar10 --network resnet18 --phase scan --attack badnet
     ```
 
+## Plot
+In our paper, we formalize backdoor learning as a twotask continual learning problem: 1). an initial rapid learning phase of the backdoor task within a few training epochs, followed by 2). a subsequent phase of gradually learning over the clean task.
 
+We provide the code to demonstrate the observation in the `plot` folder. You can run the following command to plot the results to observe 
+
+```bash
+python plot_training.py badnet
+```
 
 
 ## Citation

@@ -1,11 +1,9 @@
 __pycache__
 backdoor/__pycache__
 ckpt/*
-data/*
 data/cifar-10-batches-py
 data/cifar-10-python.tar.gz
 data/gtsrb
-data/*.pt
 models/__pycache__
 scratch/*
 utils/__pycache__
