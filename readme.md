@@ -1,12 +1,12 @@
 # Exploring the Orthogonality and Linearity of Backdoor Attacks
 ![Python 3.7](https://img.shields.io/badge/python-3.7-DodgerBlue.svg?style=plastic)
-![Pytorch 1.12.0](https://img.shields.io/badge/pytorch-1.7.1-DodgerBlue.svg?style=plastic)
+![Pytorch 1.12.0](https://img.shields.io/badge/pytorch-1.12.0-DodgerBlue.svg?style=plastic)
 ![CUDA 11.6](https://img.shields.io/badge/cuda-11.6-DodgerBlue.svg?style=plastic)
 ![License MIT](https://img.shields.io/badge/License-MIT-DodgerBlue.svg?style=plastic)
 
 
 ## Overview
-- This is the PyTorch implementation for IEEE S&P 2024 paper "[Exploring the Orthogonality and Linearity of Backdoor Attacks](./)".  
+- This is the PyTorch implementation for IEEE S&P 2024 paper "[Exploring the Orthogonality and Linearity of Backdoor Attacks](https://kaiyuanzhang.com/publications/SP24_Backdoor.pdf)".  
 
 
 ## Requirements
@@ -21,6 +21,27 @@
 conda env create -f environment.yml
 conda activate orth
 ```
+
+
+## Plot
+In our paper, we formalize backdoor learning as a two-task continual learning problem: 1). an initial rapid learning phase of the backdoor task within a few training epochs, followed by 2). a subsequent phase of gradually learning over the clean task.
+
+<p align="center">
+  <table>
+    <tr>
+      <td align="center"><img src="plot/cifar10_training_badnet.png" alt="CIFAR10 Training with BadNet" width="300"><br>CIFAR10 Training with BadNet</td>
+      <td align="center"><img src="plot/cifar10_training_blend.png" alt="CIFAR10 Training with Blend" width="300"><br>CIFAR10 Training with Blend</td>
+      <td align="center"><img src="plot/cifar10_training_wanet.png" alt="CIFAR10 Training with WaNet" width="300"><br>CIFAR10 Training with WaNet</td>
+    </tr>
+  </table>
+</p>
+
+We provide the code to demonstrate the observation in the `plot` folder. You can run the following command to plot the results to observe 
+
+```bash
+python plot_training.py badnet
+```
+
 
 ## Want to Evaluate Orthogonality and Linearity on Your Own Model?
 
@@ -92,28 +113,23 @@ In the above commond line, `xx.py` can be `model_detection.py ` or `backdoor_mit
     CUDA_VISIBLE_DEVICES=0 python input_detection.py --dataset cifar10 --network resnet18 --phase scan --attack badnet
     ```
 
-## Plot
-In our paper, we formalize backdoor learning as a twotask continual learning problem: 1). an initial rapid learning phase of the backdoor task within a few training epochs, followed by 2). a subsequent phase of gradually learning over the clean task.
 
-<p align="center">
-  <table>
-    <tr>
-      <td align="center"><img src="plot/cifar10_training_badnet.png" alt="CIFAR10 Training with BadNet" width="300"><br>CIFAR10 Training with BadNet</td>
-      <td align="center"><img src="plot/cifar10_training_blend.png" alt="CIFAR10 Training with Blend" width="300"><br>CIFAR10 Training with Blend</td>
-      <td align="center"><img src="plot/cifar10_training_wanet.png" alt="CIFAR10 Training with WaNet" width="300"><br>CIFAR10 Training with WaNet</td>
-    </tr>
-  </table>
-</p>
-
-We provide the code to demonstrate the observation in the `plot` folder. You can run the following command to plot the results to observe 
-
-```bash
-python plot_training.py badnet
-```
 
 
 ## Citation
 Please cite our work as follows for any purpose of usage.
+```bibtex
+@inproceedings{zhang2024exploring,
+  title={Exploring the Orthogonality and Linearity of Backdoor Attacks},
+  author={Zhang, Kaiyuan and Cheng, Siyuan and Shen, Guangyu and Tao, Guanhong and An, Shengwei and Makur, Anuran and Ma, Shiqing and Zhang, Xiangyu},
+  booktitle={2024 IEEE Symposium on Security and Privacy (SP)},
+  pages={225--225},
+  year={2024},
+  url = {https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00182},
+  organization={IEEE Computer Society}
+}
+```
+
 
 
 # Special thanks to...
