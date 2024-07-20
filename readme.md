@@ -32,17 +32,16 @@ Table of Contents
 properties: **orthogonality** and **linearity**, and
 in-depth explain how backdoors are learned by models.
 
-
-<div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-  <img src="./gifs/orthogonality.gif" alt="illustrative-example"
-      style="margin-right: 5px; max-width: 1000px; width: 29%; height: auto;" />
-  <img src="./gifs/parameter_space.png" alt="illustrative-example"
-      style="margin-right: 5px; max-width: 1000px; width: 20%; height: auto;" />
-  <img src="./gifs/linearity.gif" alt="illustrative-example"
-      style="max-width: 1000px; width: 29%; height: auto;" />
-  <img src="./gifs/backdoor_neurons.gif" alt="illustrative-example"
-      style="margin-right: 5px; max-width: 1000px; width: 20%; height: auto;" />
-</div>
+<p align="center">
+  <table>
+    <tr>
+      <td align="center"><img src="./gifs/orthogonality.gif" alt="illustrative" width="300"></td>
+      <td align="center"><img src="./gifs/parameter_space.png" alt="illustrative" width="300"></td>
+      <td align="center"><img src="./gifs/linearity.gif" alt="illustrative" width="300"></td>
+      <td align="center"><img src="./gifs/backdoor_neurons.gif" alt="illustrative" width="300"></td>
+    </tr>
+  </table>
+</p>
 
 ## Code Architecture  
     .
