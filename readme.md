@@ -1,13 +1,67 @@
-# Exploring the Orthogonality and Linearity of Backdoor Attacks
+# Exploring the Orthogonality and Linearity of Backdoor Attacks (IEEE S&P 2024)
 ![Python 3.7](https://img.shields.io/badge/python-3.7-DodgerBlue.svg?style=plastic)
 ![Pytorch 1.12.0](https://img.shields.io/badge/pytorch-1.12.0-DodgerBlue.svg?style=plastic)
 ![CUDA 11.6](https://img.shields.io/badge/cuda-11.6-DodgerBlue.svg?style=plastic)
 ![License MIT](https://img.shields.io/badge/License-MIT-DodgerBlue.svg?style=plastic)
 
 
-## Overview
-- This is the PyTorch implementation for IEEE S&P 2024 paper "[Exploring the Orthogonality and Linearity of Backdoor Attacks](https://kaiyuanzhang.com/publications/SP24_Backdoor.pdf)".  
+Table of Contents
+=================
+- [Overview](#Overview)
+- [Code Architecture](#Code-Architecture)
+- [Paper](./)
+- [Requirements](#Requirements)
+  - [Install required packages](#Install-required-packages)
+- [Plot](#Plot)
+- [Want to Evaluate Orthogonality and Linearity on Your Own Model?](#Want-to-Evaluate-Orthogonality-and-Linearity-on-Your-Own-Model)
+  - [Evaluate Orthogonality](#Evaluate-Orthogonality)
+  - [Evaluate Linearity](#Evaluate-Linearity)
+- [Evaluation of Various Defense Methods Against Existing Attacks](#Evaluation-of-Various-Defense-Methods-Against-Existing-Attacks)
+  - [How to Train the Model](#How-to-Train-the-Model)
+  - [How to Run the Code](#How-to-Run-the-Code)
+  - [Examples](#Examples)
+- [Six Factors Impact the Orthogonality and Linearity of Backdoor Attacks](#Six-Factors-Impact-the-Orthogonality-and-Linearity-of-Backdoor-Attacks)
+- [Citation](#Citation)
+- [Special thanks to...](#Special-thanks-to)
 
+
+## Overview
+- This is the PyTorch implementation for IEEE S&P 2024 paper "[Exploring the Orthogonality and Linearity of Backdoor Attacks](./)".  
+- **Key Observation**: Backdoor task is quickly learned much faster than the main task (clean).
+- We theoretically formulate backdoor learning with two key
+properties: **orthogonality** and **linearity**, and
+in-depth explain how backdoors are learned by models.
+
+
+<div style="text-align: center; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+  <img src="./gifs/orthogonality.gif" alt="illustrative-example"
+      style="margin-right: 5px; max-width: 1000px; width: 29%; height: auto;" />
+  <img src="./gifs/parameter_space.png" alt="illustrative-example"
+      style="margin-right: 5px; max-width: 1000px; width: 20%; height: auto;" />
+  <img src="./gifs/linearity.gif" alt="illustrative-example"
+      style="max-width: 1000px; width: 29%; height: auto;" />
+  <img src="./gifs/backdoor_neurons.gif" alt="illustrative-example"
+      style="margin-right: 5px; max-width: 1000px; width: 20%; height: auto;" />
+</div>
+
+## Code Architecture  
+    .
+    ├── backdoors                       # different backdoor attacks
+    ├── ckpt                            # pre-trained models
+    ├── data                            # data directory
+    │   └── triggers                    # trigger images / patterns
+    ├── factors_variation               # evaluate the six factors that impact the orthogonality and linearity of backdoor attacks
+    ├── log                             # training logs
+    ├── models                          # model structures for different datasets
+    ├── plot                            # visualization of backdoor attacks training ASR and ACC
+    ├── utils                           # utils / params for different datasets
+    ├── eval_orthogonality.py           # evaluate the orthogonality of the model
+    ├── eval_linearity.py               # evaluate the linearity of the model
+    ├── model_train.py                  # train the model in `ckpt` from scratch
+    ├── model_detection.py              # evaluate the model detection defense methods
+    ├── backdoor_mitigation.py          # evaluate the backdoor mitigation defense methods
+    ├── input_detection.py              # evaluate the input detection defense methods
+    └── ...
 
 ## Requirements
 
@@ -21,7 +75,6 @@
 conda env create -f environment.yml
 conda activate orth
 ```
-
 
 ## Plot
 In our paper, we formalize backdoor learning as a two-task continual learning problem: 1). an initial rapid learning phase of the backdoor task within a few training epochs, followed by 2). a subsequent phase of gradually learning over the clean task.
@@ -41,7 +94,6 @@ We provide the code to demonstrate the observation in the `plot` folder. You can
 ```bash
 python plot_training.py badnet
 ```
-
 
 ## Want to Evaluate Orthogonality and Linearity on Your Own Model?
 
@@ -69,7 +121,7 @@ The suffix is optional. If you want to evaluate the linearity of the model at a 
 We provide the necesarry ckpts in the `ckpt` folder. If you want to train the model from scratch, you can run the following command.
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python evaluate.py --dataset ${dataset} --network ${network} --phase xx
+CUDA_VISIBLE_DEVICES=0 python model_train.py --dataset ${dataset} --network ${network} --phase xx
 ```
 
 The `--phase` can be `train` or `test` or `poison`. The `--dataset` can be `cifar10` or `gtsrb`. The `--network` can be `resnet18` (in `cifar10`), and `wrn` (in `gtsrb`).
@@ -114,7 +166,24 @@ In the above commond line, `xx.py` can be `model_detection.py ` or `backdoor_mit
     ```
 
 
+## Six Factors Impact the Orthogonality and Linearity of Backdoor Attacks
+We provide the code to evaluate the six factors that impact the orthogonality and linearity of backdoor attacks in the `factors_variation` folder. You can run the following command to evaluate the six factors.
 
+
+### How to Run the Code
+```bash
+cd factors_variation
+
+CUDA_VISIBLE_DEVICES=0 python eval_factors.py --phase poison --attack badnet --troj_type xx --troj_param 0.1
+```
+In the above command line, the `--troj_type` can be `'univ-rate', 'low-conf', 'label-spec', 'trig-focus', 'acti-sep', 'weig-cal'`, you can also change the `--troj_param` to evaluate the impact of different parameters.
+
+### `univ-rate` example
+  ```bash
+  cd factors_variation
+  
+  CUDA_VISIBLE_DEVICES=0 python eval_factors.py --phase poison --attack badnet --troj_type univ-rate --troj_param 0.1
+  ```
 
 ## Citation
 Please cite our work as follows for any purpose of usage.
@@ -129,8 +198,6 @@ Please cite our work as follows for any purpose of usage.
   organization={IEEE Computer Society}
 }
 ```
-
-
 
 # Special thanks to...
 [![Stargazers repo roster for @KaiyuanZh/OrthogLinearBackdoor](https://reporoster.com/stars/KaiyuanZh/OrthogLinearBackdoor)](https://github.com/KaiyuanZh/OrthogLinearBackdoor/stargazers)

@@ -7,3 +7,6 @@ data/gtsrb
 models/__pycache__
 scratch/*
 utils/__pycache__
+factors_variation/__pycache__
+factors_variation/factors_backdoors/__pycache__
+models/__pycache__
