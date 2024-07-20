@@ -35,10 +35,10 @@ in-depth explain how backdoors are learned by models.
 <p align="center">
   <table>
     <tr>
-      <td align="center"><img src="./gifs/orthogonality.gif" alt="illustrative" width="300"></td>
-      <td align="center"><img src="./gifs/parameter_space.png" alt="illustrative" width="300"></td>
-      <td align="center"><img src="./gifs/linearity.gif" alt="illustrative" width="300"></td>
-      <td align="center"><img src="./gifs/backdoor_neurons.gif" alt="illustrative" width="300"></td>
+      <td align="center"><img src="./gifs/orthogonality.gif" alt="illustrative" width="150"></td>
+      <td align="center"><img src="./gifs/parameter_space.png" alt="illustrative" width="150"></td>
+      <td align="center"><img src="./gifs/linearity.gif" alt="illustrative" width="150"></td>
+      <td align="center"><img src="./gifs/backdoor_neurons.gif" alt="illustrative" width="150"></td>
     </tr>
   </table>
 </p>
