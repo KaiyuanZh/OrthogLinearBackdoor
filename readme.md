@@ -28,17 +28,17 @@ Table of Contents
 ## Overview
 - This is the PyTorch implementation for IEEE S&P 2024 paper "[Exploring the Orthogonality and Linearity of Backdoor Attacks](./)".  
 - **Key Observation**: Backdoor task is quickly learned much faster than the main task (clean).
-- We theoretically formulate backdoor learning with two key
+- Take-Away: We theoretically formulate backdoor learning with two key
 properties: **orthogonality** and **linearity**, and
 in-depth explain how backdoors are learned by models.
 
 <p align="center">
   <table>
     <tr>
-      <td align="center"><img src="./gifs/orthogonality.gif" alt="illustrative" width="150"></td>
-      <td align="center"><img src="./gifs/parameter_space.png" alt="illustrative" width="150"></td>
-      <td align="center"><img src="./gifs/linearity.gif" alt="illustrative" width="150"></td>
-      <td align="center"><img src="./gifs/backdoor_neurons.gif" alt="illustrative" width="150"></td>
+      <td align="center"><img src="./gifs/orthogonality.gif" alt="illustrative" width="170"></td>
+      <td align="center"><img src="./gifs/parameter_space.png" alt="illustrative" width="170"></td>
+      <td align="center"><img src="./gifs/linearity.gif" alt="illustrative" width="170"></td>
+      <td align="center"><img src="./gifs/backdoor_neurons.gif" alt="illustrative" width="170"></td>
     </tr>
   </table>
 </p>
