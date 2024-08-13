@@ -191,10 +191,15 @@ Please cite our work as follows for any purpose of usage.
   title={Exploring the Orthogonality and Linearity of Backdoor Attacks},
   author={Zhang, Kaiyuan and Cheng, Siyuan and Shen, Guangyu and Tao, Guanhong and An, Shengwei and Makur, Anuran and Ma, Shiqing and Zhang, Xiangyu},
   booktitle={2024 IEEE Symposium on Security and Privacy (SP)},
-  pages={225--225},
-  year={2024},
-  url = {https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00182},
-  organization={IEEE Computer Society}
+  year = {2024},
+  volume = {},
+  issn = {2375-1207},
+  pages = {225-225},
+  doi = {10.1109/SP54263.2024.00225},
+  url = {https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00225},
+  publisher = {IEEE Computer Society},
+  address = {Los Alamitos, CA, USA},
+  month = {may}
 }
 ```
 
