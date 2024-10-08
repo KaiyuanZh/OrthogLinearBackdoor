@@ -9,7 +9,7 @@ Table of Contents
 =================
 - [Overview](#Overview)
 - [Code Architecture](#Code-Architecture)
-- [Paper](./)
+- [Paper](https://kaiyuanzhang.com/publications/SP24_Backdoor.pdf)
 - [Requirements](#Requirements)
   - [Install required packages](#Install-required-packages)
 - [Plot](#Plot)
