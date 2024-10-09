@@ -365,7 +365,7 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
-    DEVICE = torch.device(f'cuda:{args.gpu}')
+    DEVICE = torch.device('cuda')
 
     if args.phase == 'train':
         train(args)
