@@ -70,7 +70,6 @@ in-depth explain how backdoors are learned by models.
 
 ### Install required packages
 ```bash
-# Create python environment (optional)
 conda env create -f environment.yml
 conda activate orth
 ```
@@ -117,7 +116,9 @@ The suffix is optional. If you want to evaluate the linearity of the model at a 
 ##  Evaluation of Various Defense Methods Against Existing Attacks
 
 ### How to Train the Model
-We provide the necesarry ckpts in the `ckpt` folder. If you want to train the model from scratch, you can run the following command.
+We provide the necesarry ckpts in the `ckpt` folder. If you cannot access these files due to GitHub large file limitations, you can download them from this cloud link: [ckpt files](https://purdue0-my.sharepoint.com/:f:/g/personal/zhan4057_purdue_edu/EvCG0ceFDyFOuDex049MZjUBUMq07EsVYCQuUiAQNixJdQ?e=yaAozC)
+
+If you want to train the model from scratch, you can run the following command.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python model_train.py --dataset ${dataset} --network ${network} --phase xx
@@ -202,7 +203,3 @@ Please cite our work as follows for any purpose of usage.
   month = {may}
 }
 ```
-
-# Special thanks to...
-[![Stargazers repo roster for @KaiyuanZh/OrthogLinearBackdoor](https://reporoster.com/stars/KaiyuanZh/OrthogLinearBackdoor)](https://github.com/KaiyuanZh/OrthogLinearBackdoor/stargazers)
-[![Forkers repo roster for @KaiyuanZh/OrthogLinearBackdoor](https://reporoster.com/forks/KaiyuanZh/OrthogLinearBackdoor)](https://github.com/KaiyuanZh/OrthogLinearBackdoor/network/members)
